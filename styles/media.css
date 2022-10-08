@@ -1,0 +1,52 @@
+/* @media(min-width: 700px){
+
+    .cabecalho{
+        padding-left: 100px;
+    }
+
+    .cabecalho-description{
+        max-width: 893px;
+    }
+
+    .vacanciesList{
+        width: max-content;
+    }
+    .vacanciesList .vacancy{
+        max-width: 750px;
+        min-width: 500px;
+        height: max-content;
+    }
+
+    .vacancy .type-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .vacancy .type-button button{
+        width: 150px;
+        height: 38px;
+    }
+
+    .section-vacancies{
+        width: max-content;
+    }
+
+    main{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    aside{
+        margin-top: 92px;
+        max-width: 503px;
+    }
+
+    aside h3{
+        width: 503px;
+    }
+
+    .list-selected .selected-vacancies{
+        max-width: 503px;
+    }
+} */

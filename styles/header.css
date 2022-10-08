@@ -1,0 +1,51 @@
+
+.cabecalho{
+    background-image: url('/assets/img/header-img.png');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: flex-start;
+    height: 789px;
+}
+
+.back{
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho-description{
+    color: white;
+
+}
+
+.cabecalho h2{
+    color: #fff;
+    margin-top: 100px;
+}
+.cabecalho-description h1{
+    margin: 60px 0 32px 0;
+    color: var(--color-grey-3);
+    
+}
+.cabecalho-description p{
+    font-size: var(--text-3);
+    line-height: 32px;
+    color: var(--color-grey-5);
+}
+
+.cabecalho-description .check{
+    margin: 72px 0px;
+}
+
+.cabecalho button{
+    width: 296px;
+    height: 48px;
+    background-color: var(--color-brand-1);
+    border: none;
+    border-radius: var(--radius-default);
+    color: var(--color-grey-6);
+    cursor: pointer;
+}

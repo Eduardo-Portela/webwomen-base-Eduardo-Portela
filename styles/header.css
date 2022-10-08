@@ -1,6 +1,10 @@
 
+header{
+    background-image: url(../assets/img/header-img.png);
+}
+
 .cabecalho{
-    background-image: url(assets/img/header-img.png);
+
     background-position: center;
     background-attachment: fixed;
     background-size: cover;

@@ -1,4 +1,22 @@
 /* Desenvolva sua lógica aqui... */
+
+const copyList = []
+
+
+function LocalStorageAnalysis(){
+    const filesLocalStorage = localStorage.getItem("VagasSelecionadas")
+    if(filesLocalStorage){
+        const filesConverted =  JSON.parse(filesLocalStorage)
+        if(filesConverted.length > 0 ){
+            copyList.push([...filesConverted])
+        }
+        console.log(copyList)
+       return createCardVacancy(filesConverted)
+    }
+}
+
+LocalStorageAnalysis()
+
 function renderCards(list = jobsData){
     const listRender = list.map((element)=> element)
 
@@ -45,17 +63,17 @@ function renderCards(list = jobsData){
         pModalite.innerText = `${modalities[0]}`
         addButton.innerText = "Candidatar"
 
-        console.log(getvacLocation(), addButton.id)
-        const newArray = vacAlreadyExist(element)
-        newArray.forEach((ele) => {
+        // console.log(getvacLocation(), addButton.id)
+        // const newArray = vacAlreadyExist(element)
+        // newArray.forEach((ele) => {
 
-            if(ele.id == addButton.id){
-                addButton.innerText = "Remover Candidatura"       
-            }else{
-                addButton.innerText = "Candidatar"
-            }
+        //     if(ele.id == addButton.id){
+        //         addButton.innerText = "Remover Candidatura"       
+        //     }else{
+        //         addButton.innerText = "Candidatar"
+        //     }
             
-        })
+        // })
 
         li.append(divTitle,pDescription,divTypeButton)
         divTitle.append(h3Title,divCompanyCity,)
@@ -71,21 +89,6 @@ function renderCards(list = jobsData){
 
 renderCards()
 
-const copyList = []
-
-function LocalStorageAnalysis(){
-    const filesLocalStorage = localStorage.getItem("VagasSelecionadas")
-    if(filesLocalStorage){
-        const filesConverted =  JSON.parse(filesLocalStorage)
-        if(filesConverted.length > 0 ){
-            copyList.push([...filesConverted])
-        }
-        console.log(copyList)
-       return createCardVacancy(filesConverted)
-    }
-}
-
-LocalStorageAnalysis()
 
 
 

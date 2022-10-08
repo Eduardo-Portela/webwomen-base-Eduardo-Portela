@@ -1,16 +1,21 @@
 /* Desenvolva sua lógica aqui... */
 
-const copyList = []
+let copyList = []
 
+function vacAlreadyExist(vaga){
+   const getVacancy =  copyList.filter((element) => {
+       return element.id == vaga.id
+    })
+    return getVacancy
+}
 
 function LocalStorageAnalysis(){
     const filesLocalStorage = localStorage.getItem("VagasSelecionadas")
     if(filesLocalStorage){
         const filesConverted =  JSON.parse(filesLocalStorage)
         if(filesConverted.length > 0 ){
-            copyList.push([...filesConverted])
+            copyList = [...filesConverted]
         }
-        console.log(copyList)
        return createCardVacancy(filesConverted)
     }
 }
@@ -42,8 +47,11 @@ function renderCards(list = jobsData){
         const pDescription = document.createElement("p")
         
         const divTypeButton = document.createElement("div")
+
+        const divTypeButtonModalites = document.createElement("div")
     
         const pModalite = document.createElement("p")
+        const pModalite2 = document.createElement("p")
         const addButton = document.createElement("button")
     
         li.classList.add("vacancy")
@@ -53,6 +61,7 @@ function renderCards(list = jobsData){
         divTypeButton.classList ="type-button"
         addButton.classList = "Button-add"
         addButton.id = id
+        divTypeButtonModalites.classList.add("div-modalites")
 
        
     
@@ -61,24 +70,25 @@ function renderCards(list = jobsData){
         pCity.innerText = `${location}`
         pDescription.innerText = `${descrition}`
         pModalite.innerText = `${modalities[0]}`
+        pModalite2.innerText = `${modalities[1]}`
         addButton.innerText = "Candidatar"
 
-        // console.log(getvacLocation(), addButton.id)
-        // const newArray = vacAlreadyExist(element)
-        // newArray.forEach((ele) => {
+        const newArray = vacAlreadyExist(element)
+        newArray.forEach((ele) => {
 
-        //     if(ele.id == addButton.id){
-        //         addButton.innerText = "Remover Candidatura"       
-        //     }else{
-        //         addButton.innerText = "Candidatar"
-        //     }
+            if(ele.id == addButton.id){
+                addButton.innerText = "Remover Candidatura"       
+            }else{
+                addButton.innerText = "Candidatar"
+            }
             
-        // })
+        })
 
         li.append(divTitle,pDescription,divTypeButton)
         divTitle.append(h3Title,divCompanyCity,)
         divCompanyCity.append(pCompany,pCity)
-        divTypeButton.append(pModalite,addButton)
+        divTypeButtonModalites.append(pModalite, pModalite2)
+        divTypeButton.append(divTypeButtonModalites,addButton)
         
         
         listCards.appendChild(li)
@@ -88,9 +98,6 @@ function renderCards(list = jobsData){
 }
 
 renderCards()
-
-
-
 
 
 function createCardVacancy(list){
@@ -136,6 +143,7 @@ function createCardVacancy(list){
                     })
 
                 list.splice(removeVac, 1)
+
                 const newList = [...copyList]
                     
                 const listJSON = JSON.stringify(newList)
@@ -143,6 +151,10 @@ function createCardVacancy(list){
                 localStorage.setItem("VagasSelecionadas", listJSON)
                 let liRemove = buttonTrash.parentElement.parentElement
                 liRemove.remove()
+
+                if(list.length == 0){
+                    showEmpty()
+                }
             })
     
     
@@ -161,75 +173,27 @@ function createCardVacancy(list){
 }
 
 
-function addRemoveVacancies(list = jobsData){
-    const buttonsAdd = [...document.querySelectorAll(".Button-add")]
-    buttonsAdd.forEach((button) => {
-        list.forEach((element) => {
-            button.addEventListener("click", ()=>{
-                if(button.id == element.id && button.innerText == "Candidatar"){
-                    button.innerText = "Remover Candidatura"
+const emptyUl = document.querySelector(".list-selected")
 
-                    copyList.push(element)
-                    
-                    const newList = [...copyList]
+function showEmpty(){
+    const emptyLi = document.createElement("li")
 
-                    const listJSON = JSON.stringify(newList)
-                    localStorage.setItem("VagasSelecionadas", listJSON)
-                    
-                    return createCardVacancy(copyList)
+    emptyLi.classList.add("empty-li")
 
-                }else if(button.id == element.id && button.innerText == "Remover Candidatura"){
-                    button.innerText = "Candidatar"
-                    let founded = copyList.findIndex((elementFound)=> {
-                        return button.id == elementFound.id
-                     })
-                     copyList.splice(founded, 1)
-                     
-                    const newList = [...copyList]
-                    
-                    const listJSON = JSON.stringify(newList)
-                    console.log(newList)
-
-                    localStorage.setItem("VagasSelecionadas", listJSON)
-                 
-                     createCardVacancy(copyList)
-                }
-        })
-        })
-    })
+    emptyLi.insertAdjacentHTML("beforeend", `
+    <h4>Você ainda não aplicou para nenhuma vaga</h4>
+        <div class="row-1"></div>
+            <div class="row-2"></div>
+            <div class="row-3">
+                <div class="sub-row"></div>
+                <div class="sub-row"></div>
+                <div class="sub-row2"></div>
+            </div>
+    `)
+    emptyUl.append(emptyLi)
+    return emptyUl
 }
 
-addRemoveVacancies()
-
-
-function RemoveSelectedCard(list = copyList){
-    if (list.length > 0){
-        const trashButton = document.querySelectorAll(".trash")
-        console.log(trashButton)
-        trashButton.forEach((button) => {
-            button.addEventListener("click", () => {
-                let founded = list.findIndex((element)=> {
-                   return button.id == element.id
-                })
-                list.splice(founded, 1)
-                let liRemove = button.parentElement.parentElement
-                liRemove.remove()
-            })
-        })
-    }
+if(copyList.length == 0){
+    showEmpty()
 }
-
-RemoveSelectedCard()
-
-
-function getvacLocation(){
-    return JSON.parse(localStorage.getItem("VagasSelecionadas") || [])
-}
-
-function vacAlreadyExist(vaga){
-   const getVacancy =  getvacLocation().filter((element) => {
-       return element.id == vaga.id
-    })
-    return getVacancy
-}
- 

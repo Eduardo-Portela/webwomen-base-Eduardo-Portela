@@ -29,6 +29,18 @@ main .text-vacancies{
     line-height: 32px;
 }
 
+.vacancy .type-button {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.vacancy .type-button .div-modalites{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
 .vacancy .type-button p{
     background-color: var(--color-grey-3);
     border-radius: var(--radius-default);
@@ -40,7 +52,7 @@ main .text-vacancies{
     text-align: center;
 }
 .vacancy .type-button button{
-    width: 268px;
+    width: 263px;
     background-color: var(--color-brand-1);
     border-radius: var(--radius-default);
     color: var(--color-grey-6);

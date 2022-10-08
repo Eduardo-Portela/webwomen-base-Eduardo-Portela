@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/globalStyles.css">
-    <link rel="stylesheet" href="pages/home/index.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/section-vacancies.css">
-    <link rel="stylesheet" href="styles/vacancies-selected.css">
+    <link rel="stylesheet" href="pages/home/index.css">
     <link rel="stylesheet" href="styles/media.css">
+    <link rel="stylesheet" href="styles/vacancies-selected.css">
 
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <title>Webwomen</title>
@@ -21,7 +21,7 @@
     />
 </head>
 <body>
-  <div>
+  <div class="container2">
     <header class="cabecalho">
       <div class=" back container">
         <h2>WebWomen</h2>
@@ -31,7 +31,8 @@
             Ou até mesmo oportunidades para atender eventos de tecnologia no Brasil e ao redor do mundo?</p>
           <p class="check">Confere aqui embaixo o que temos pra você!</p>
         </div>
-        <button>Ir para seção das vagas</button>
+        <button><a href="#link">Ir para seção das vagas</a></button>
+
       </div>
     </header>
       <main class="container">
@@ -43,9 +44,10 @@
         </section>
 
 
-        <aside>
+        <aside class="aside" id="link">
           <h3>Vagas Selecionadas</h3>
           <ul class="list-selected">
+            
          
           </ul>
         </aside>
@@ -53,6 +55,7 @@
   </div>
     <script src="pages/home/jobsData.js"></script>
     <script src="pages/home/index.js"></script>
+    <script src="scripts/addRemove.js"></script>
 
 </body>
 </html>

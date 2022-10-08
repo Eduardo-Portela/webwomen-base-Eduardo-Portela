@@ -1,46 +1,4 @@
 /* Desenvolva sua estilização aqui... */
-
-@media(min-width: 900px){
-    .vacanciesList .vacancy{
-        max-width: 700px;
-        min-width: 500px;
-        height: max-content;
-    }
-
-    .vacancy .type-button button{
-        max-width: 150px;
-        height: 38px;
-    }
-
-    .vacancy .type-button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .vacancy .company-city{
-        width: 200px;
-    }
-
-    aside{
-        max-width: 500px;
-        min-width: 500px;
-        height: max-content;
-        margin-top: 132px;
-    }
-    .list-selected{
-        width: 100%;
-    }
-    .list-selected .selected-vacancies{
-        width: 100%;
-    }
-
-    .container{
-        display: flex;
-        gap: 32px;
-        
-    }
-
-
+.container2{
+    max-width: 100%;
 }

@@ -1,20 +1,14 @@
-/* @media(min-width: 700px){
 
-    .cabecalho{
-        padding-left: 100px;
-    }
-
-    .cabecalho-description{
-        max-width: 893px;
-    }
-
-    .vacanciesList{
-        width: max-content;
-    }
+@media(min-width: 1082px){
     .vacanciesList .vacancy{
-        max-width: 750px;
+        max-width: 700px;
         min-width: 500px;
         height: max-content;
+    }
+
+    .vacancy .type-button button{
+        max-width: 150px;
+        height: 38px;
     }
 
     .vacancy .type-button{
@@ -23,30 +17,34 @@
         align-items: center;
         justify-content: space-between;
     }
-    .vacancy .type-button button{
-        width: 150px;
-        height: 38px;
-    }
 
-    .section-vacancies{
-        width: max-content;
-    }
-
-    main{
-        display: flex;
-        justify-content: space-around;
+    .vacancy .company-city{
+        width: 200px;
     }
 
     aside{
-        margin-top: 92px;
-        max-width: 503px;
+        max-width: 500px;
+        min-width: 500px;
+        height: max-content;
+        margin-top: 132px;
     }
-
-    aside h3{
-        width: 503px;
+    .list-selected{
+        width: 100%;
     }
-
     .list-selected .selected-vacancies{
-        max-width: 503px;
+        width: 100%;
     }
-} */
+
+    .container{
+        display: flex;
+        gap: 32px;
+        
+    }
+
+    .vacancy .type-button{
+        display: flex;
+        flex-direction: row;
+    }
+
+
+}

@@ -1,9 +1,25 @@
+aside{
+position: sticky;
+top: 20px;
+}
+
+aside h3{
+    background-color: var(--color-grey-6);
+    padding: 32px;
+    border-radius: 8px 8px 0 0;
+}
+
 .list-selected .selected-vacancies{
     background-color: var(--color-grey-6);
     padding: 38px;
     border-radius: 0 0 8px 8px;
     border-bottom: 2px solid var(--color-grey-4);
 }
+
+.list-selected .selected-vacancies:hover{
+    background-color: var(--color-grey-4);
+}
+
 .list-selected .selected-vacancies .title-remove{
     display: flex;
     justify-content: space-between;
@@ -27,8 +43,43 @@
     font-size: var(--text-3);
 }
 
-aside h3{
-    background-color: var(--color-grey-6);
-    padding: 32px;
-    border-radius: 8px 8px 0 0;
+.empty-li{
+    background-color: aliceblue;
+    height: max-content;
+    padding: 38px;
 }
+
+.empty-li .row-1{
+    background-color: var(--color-grey-3);
+    width: 149px;
+    height: 16px;
+    border-radius: var(--radius-default);
+    margin-top: 32px;
+}
+.empty-li .row-2{
+    width: 267px;
+    height: 16px;
+    background-color: var(--color-grey-3);
+    border-radius: var(--radius-default);
+    margin: 15px 0px;
+}
+.empty-li .row-3{
+    display: flex;
+    gap: 8px;
+}
+
+.empty-li .row-3 .sub-row{
+    width: 103px;
+    height: 16px;
+    background-color: var(--color-grey-3);
+    border-radius: var(--radius-default);
+    margin-right: 5px;
+}
+.empty-li .row-3 .sub-row2{
+    width: 45px;
+    height: 16px;
+    background-color: var(--color-grey-3);
+    border-radius: var(--radius-default);
+    
+}
+

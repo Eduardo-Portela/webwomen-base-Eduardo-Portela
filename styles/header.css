@@ -45,11 +45,16 @@ header{
 }
 
 .cabecalho button{
+    list-style: none;
     width: 296px;
     height: 48px;
     background-color: var(--color-brand-1);
     border: none;
     border-radius: var(--radius-default);
-    color: var(--color-grey-6);
     cursor: pointer;
+}
+
+.cabecalho button a {
+    text-decoration: none;
+    color: var(--color-grey-6);
 }
